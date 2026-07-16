@@ -1,9 +1,10 @@
 # YouTubeMusic KtEngine 🎵
 
-![Kotlin](https://img.shields.io/badge/Kotlin-2.1.10-7F52FF.svg?logo=kotlin&logoColor=white)
-![Ktor](https://img.shields.io/badge/Ktor-2.3.8-087CFA.svg?logo=ktor&logoColor=white)
-![Coroutines](https://img.shields.io/badge/Coroutines-1.8.0-blue.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Version](https://img.shields.io/github/v/release/DivyansPathak/ytmusic-engine-kotlin)
+![GitHub Release Date](https://img.shields.io/github/release-date/DivyansPathak/ytmusic-engine-kotlin)
+![License](https://img.shields.io/github/license/DivyansPathak/ytmusic-engine-kotlin)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.1.10-7F52FF.svg?logo=kotlin)
+![Ktor](https://img.shields.io/badge/Ktor-2.3.8-087CFA.svg?logo=ktor)
 
 A lightweight, fully asynchronous Kotlin library for interacting with the **YouTube Music InnerTube API**.
 
