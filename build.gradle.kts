@@ -3,9 +3,8 @@ plugins {
     `maven-publish`
 }
 
-// 1. Correct JitPack Group and Next Version
 group = "com.github.DivyansPathak"
-version = "1.0.4"
+version = "1.0.5" // Bumped to 1.0.5
 
 repositories {
     mavenCentral()
@@ -24,16 +23,19 @@ tasks.test {
     useJUnitPlatform()
 }
 
-// 2. Use JDK 19 locally, but compile to Java 17 bytecode for maximum compatibility
-kotlin {
-    jvmToolchain(19)
+// 1. Force Java compiler to output Java 17 bytecode
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
-tasks.withType<JavaCompile> {
-    options.release.set(17)
+// 2. Force Kotlin compiler to output Java 17 bytecode
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    }
 }
 
-// 3. Explicit Maven Publication Block for JitPack
 publishing {
     publications {
         create<MavenPublication>("maven") {
@@ -41,7 +43,7 @@ publishing {
 
             groupId = "com.github.DivyansPathak"
             artifactId = "ytmusic-engine-kotlin"
-            version = "1.0.4"
+            version = "1.0.5"
         }
     }
 }
