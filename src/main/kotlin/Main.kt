@@ -23,18 +23,18 @@ fun main() = runBlocking {
     // SEARCH SONGS
     // =========================================================
 
-//    val songs =
-//        repository.searchSongs(
-//            "yu hi chala chal"
-//        )
-//
-//    println(
-//        "\n========== SEARCH SONGS =========="
-//    )
-//
-//    songs.take(5).forEach {
-//        println(it)
-//    }
+    val songs =
+        repository.searchSongs(
+            "Yu hi chala chal rahi"
+        )
+
+    println(
+        "\n========== SEARCH SONGS =========="
+    )
+
+    songs.take(5).forEach {
+        println(it)
+    }
 // =========================================================
 // RADIO
 // =========================================================
