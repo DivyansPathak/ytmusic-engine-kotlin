@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "io.github.divyanspathak"
-version = "1.0.0"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
@@ -34,7 +34,7 @@ publishing {
 
             groupId = "io.github.divyanspathak"
             artifactId = "ytmusic-engine-kotlin"
-            version = "1.0.0"
+
         }
     }
 }
