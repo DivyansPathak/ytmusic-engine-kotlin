@@ -1,4 +1,7 @@
 import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import network.InnerTubeClient
 import repository.YoutubeMusicRepository
 
@@ -25,7 +28,7 @@ fun main() = runBlocking {
 
     val songs =
         repository.searchSongs(
-            "Yu hi chala chal rahi"
+            "kalyani"
         )
 
     println(
@@ -34,6 +37,71 @@ fun main() = runBlocking {
 
     songs.take(5).forEach {
         println(it)
+    }
+
+
+    // =========================================================
+    // LYRICS TEST
+    // =========================================================
+
+    val targetSong =
+        songs.firstOrNull()
+
+    if (targetSong == null) {
+
+        println(
+            "\nSong not found."
+        )
+
+    } else {
+
+        println(
+            "\n========== LYRICS TEST =========="
+        )
+
+        println(
+            "Title   : ${targetSong.title}"
+        )
+
+        println(
+            "VideoId : ${targetSong.videoId}"
+        )
+
+        println(
+            "\nFetching lyrics..."
+        )
+
+        val lyrics =
+            repository.lyrics(
+                targetSong.videoId
+            )
+
+        if (lyrics == null) {
+
+            println(
+                "\nLyrics not found."
+            )
+
+        } else {
+
+            println(
+                "\n========== LYRICS =========="
+            )
+
+            println(
+                lyrics.lyrics
+            )
+
+            println()
+
+            println(
+                "========== SOURCE =========="
+            )
+
+            println(
+                lyrics.source
+            )
+        }
     }
 // =========================================================
 // RADIO

@@ -5,6 +5,7 @@ import model.*
 import model.charts.ChartPage
 import model.explore.ExplorePage
 import model.home.HomeFeed
+import model.lyrics.LyricsPage
 import model.modelUtils.SearchFilter
 import model.mood.Mood
 import model.mood.MoodPage
@@ -17,6 +18,7 @@ import parser.artist.ArtistParser
 import parser.charts.ChartPageParser
 import parser.explore.ExplorePageParser
 import parser.home.HomeFeedParser
+import parser.lyrics.LyricsParser
 import parser.mood.MoodPageParser
 import parser.mood.MoodsGenresParser
 import parser.newrelease.NewReleasePageParser
@@ -172,6 +174,23 @@ class YoutubeMusicRepository(
         return QueueParser.parse(
             client.next(videoId)
         )
+    }
+
+    /**
+     * Gets the lyrics browse ID for a given videoId
+     */
+    private suspend fun getLyricsBrowseId(videoId: String): String? {
+        val nextResponse = client.next(videoId)
+        return LyricsParser.parseBrowseId(nextResponse)
+    }
+
+    /**
+     * Fetches and returns the lyrics for a song. Returns null if lyrics are unavailable.
+     */
+    suspend fun lyrics(videoId: String): LyricsPage? {
+        val browseId = getLyricsBrowseId(videoId) ?: return null
+        val browseResponse = client.browse(browseId)
+        return LyricsParser.parseLyrics(browseResponse)
     }
 
 }
