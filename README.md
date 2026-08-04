@@ -36,25 +36,28 @@ Built from the ground up for Android and JVM applications, **YouTubeMusic KtEngi
 | Serialization | Kotlinx Serialization JSON |
 
 ---
-
 ## 📦 Installation
 
-The library is not yet published.
+![Latest Release](https://img.shields.io/github/v/release/DivyansPathak/ytmusic-engine-kotlin?label=Latest%20Version&color=blue)
 
-Once the first stable release is available, it can be added through **JitPack** or **Maven Central**.
-
-Example (coming soon):
+Add the JitPack repository:
 
 ```kotlin
 repositories {
+    mavenCentral()
     maven("https://jitpack.io")
-}
-
-dependencies {
-    implementation("com.github.<username>:ytmusic-engine-kotlin:v1.0.0")
 }
 ```
 
+Add the dependency:
+
+```kotlin
+dependencies {
+    implementation("com.github.DivyansPathak:ytmusic-engine-kotlin:<latest-version>")
+}
+```
+
+Replace `<latest-version>` with the version shown in the badge above (for example, `v1.0.5`).
 ---
 
 ## 🚀 Quick Start
