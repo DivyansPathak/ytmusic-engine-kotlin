@@ -113,6 +113,7 @@ fun main() = runBlocking {
 | Album | ✅ |
 | Playlist | ✅ |
 | Artist | ✅ |
+| Lyrics | ✅ |
 
 
 > More endpoints will be added over time.
@@ -164,7 +165,7 @@ src/
 - [x] Albums
 - [x] Playlists
 - [x] Artists
-- [ ] Lyrics
+- [x] Lyrics
 - [ ] Authentication support
 - [ ] Playlist editing
 - [ ] Additional InnerTube endpoints
