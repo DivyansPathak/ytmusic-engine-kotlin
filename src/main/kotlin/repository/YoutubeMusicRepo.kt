@@ -8,6 +8,7 @@ import model.home.HomeFeed
 import model.lyrics.LyricsPage
 import model.modelUtils.SearchFilter
 import model.mood.Mood
+import model.mood.MoodSection
 import model.mood.MoodPage
 import model.newrelease.NewReleasePage
 import model.playlist.PlaylistPage
@@ -110,7 +111,7 @@ class YoutubeMusicRepository(
     }
 
     suspend fun moodsAndGenres(
-    ): List<Mood> {
+    ): List<MoodSection> {
 
         val response =
             client.browse(

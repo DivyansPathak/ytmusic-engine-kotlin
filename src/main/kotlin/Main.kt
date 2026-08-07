@@ -28,7 +28,7 @@ fun main() = runBlocking {
 
     val songs =
         repository.searchSongs(
-            "kalyani"
+            "ajeeb dastan hai ye"
         )
 
     println(
@@ -44,65 +44,67 @@ fun main() = runBlocking {
     // LYRICS TEST
     // =========================================================
 
-    val targetSong =
-        songs.firstOrNull()
+//    val targetSong =
+//        songs.firstOrNull()
+//
+//    if (targetSong == null) {
+//
+//        println(
+//            "\nSong not found."
+//        )
+//
+//    } else {
+//
+//        println(
+//            "\n========== LYRICS TEST =========="
+//        )
+//
+//        println(
+//            "Title   : ${targetSong.title}"
+//        )
+//
+//        println(
+//            "VideoId : ${targetSong.videoId}"
+//        )
+//
+//        println(
+//            "\nFetching lyrics..."
+//        )
+//
+//        val lyrics =
+//            repository.lyrics(
+//                targetSong.videoId
+//            )
+//
+//        if (lyrics == null) {
+//
+//            println(
+//                "\nLyrics not found."
+//            )
+//
+//        } else {
+//
+//            println(
+//                "\n========== LYRICS =========="
+//            )
+//
+//            println(
+//                lyrics.lyrics
+//            )
+//
+//            println()
+//
+//            println(
+//                "========== SOURCE =========="
+//            )
+//
+//            println(
+//                lyrics.source
+//            )
+//        }
+//    }
 
-    if (targetSong == null) {
 
-        println(
-            "\nSong not found."
-        )
-
-    } else {
-
-        println(
-            "\n========== LYRICS TEST =========="
-        )
-
-        println(
-            "Title   : ${targetSong.title}"
-        )
-
-        println(
-            "VideoId : ${targetSong.videoId}"
-        )
-
-        println(
-            "\nFetching lyrics..."
-        )
-
-        val lyrics =
-            repository.lyrics(
-                targetSong.videoId
-            )
-
-        if (lyrics == null) {
-
-            println(
-                "\nLyrics not found."
-            )
-
-        } else {
-
-            println(
-                "\n========== LYRICS =========="
-            )
-
-            println(
-                lyrics.lyrics
-            )
-
-            println()
-
-            println(
-                "========== SOURCE =========="
-            )
-
-            println(
-                lyrics.source
-            )
-        }
-    }
 // =========================================================
 // RADIO
 // =========================================================
@@ -253,24 +255,27 @@ fun main() = runBlocking {
     // MOODS & GENRES LIST
     // =========================================================
 
-//    val moods =
-//        repository.moodsAndGenres()
-//
-//    println(
-//        "\n========== MOODS & GENRES =========="
-//    )
-//
-//    moods.forEachIndexed { index, mood ->
-//
-//        println(
-//            "$index -> ${mood.title}"
-//        )
-//    }
-//
-//    println(
-//        "\nTotal moods : ${moods.size}"
-//    )
+    val categories =
+        repository.moodsAndGenres()
 
+    println(
+        "Categories : ${categories.size}"
+    )
+
+    categories.forEach {
+
+        println()
+
+        println("===== ${it.title} =====")
+
+        println(
+            "Moods : ${it.moods.size}"
+        )
+
+        println(
+            it.moods.take(10)
+        )
+    }
     // =========================================================
     // MOOD PAGE
     // =========================================================
